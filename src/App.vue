@@ -14,6 +14,7 @@ export default {
   components: {
     AppHeader,
     AppMain,
+    SearchBar
   },
   created() {
   },
