@@ -30,7 +30,9 @@ export default {
             <h2>Risultati della ricerca:</h2>
             <ul>
                 <li v-for="item in results" :key="item.id">
-                    {{ item.title || item.name }} ({{ item.media_type }})
+                    {{ item.title || item.name }} ({{ item.vote_average }})
+                    ({{ item.original_title }}) ({{ item.original_language }})
+
                 </li>
             </ul>
         </div>
