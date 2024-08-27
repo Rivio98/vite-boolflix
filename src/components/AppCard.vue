@@ -40,6 +40,7 @@ export default {
         <h2>Risultati Film:</h2>
         <ul>
             <li v-for="item in store.resultsMovies" :key="item.id">
+                <img :src="`https://image.tmdb.org/t/p/w500/${item.poster_path}`" alt="">
                 {{ item.title || item.name }} ({{ item.vote_average }})
                 ({{ item.original_title }}) <span :class="getFlagClass(item.original_language)"></span>
             </li>
@@ -49,6 +50,7 @@ export default {
         <h2>Risultati delle Serie TV:</h2>
         <ul>
             <li v-for="item in store.resultsSeries" :key="item.id">
+                <img :src="`https://image.tmdb.org/t/p/w500/${item.poster_path}`" alt="">
                 {{ item.title || item.name }} ({{ item.vote_average }})
                 ({{ item.original_title }}) <span :class="getFlagClass(item.original_language)"></span>
             </li>
