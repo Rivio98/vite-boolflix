@@ -5,7 +5,7 @@ export default {
     data() {
         return {
             searchQuery: '',
-            results: []
+            store
         };
     },
 
@@ -16,7 +16,7 @@ export default {
                     .then(movieResults => {
                         return store.searchSeries(this.searchQuery)
                             .then(seriesResults => {
-                                this.results = [...movieResults, ...seriesResults];
+                                this.store.results = [...movieResults, ...seriesResults];
                             });
                     })
                     .catch(error => {
@@ -32,16 +32,6 @@ export default {
     <div>
         <input v-model="searchQuery" placeholder="Cerca un film o una serie..." />
         <button @click="searchContent">Cerca</button>
-
-        <div v-if="results.length > 0">
-            <h2>Risultati della ricerca:</h2>
-            <ul>
-                <li v-for="item in results" :key="item.id">
-                    {{ item.title || item.name }} ({{ item.vote_average }})
-                    ({{ item.original_title }}) ({{ item.original_language }})
-                </li>
-            </ul>
-        </div>
     </div>
 </template>
 
