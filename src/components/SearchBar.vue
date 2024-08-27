@@ -10,11 +10,18 @@ export default {
     },
 
     methods: {
-        async searchContent() {
+        searchContent() {
             if (this.searchQuery.toLowerCase) {
-                let movieResults = await store.searchMovie(this.searchQuery)
-                let seriesResults = await store.searchSeries(this.searchQuery);
-                this.results = [...movieResults, ...seriesResults];
+                store.searchMovie(this.searchQuery)
+                    .then(movieResults => {
+                        return store.searchSeries(this.searchQuery)
+                            .then(seriesResults => {
+                                this.results = [...movieResults, ...seriesResults];
+                            });
+                    })
+                    .catch(error => {
+                        console.error("Errore nella ricerca:", error);
+                    });
             }
         }
     }
@@ -32,7 +39,6 @@ export default {
                 <li v-for="item in results" :key="item.id">
                     {{ item.title || item.name }} ({{ item.vote_average }})
                     ({{ item.original_title }}) ({{ item.original_language }})
-
                 </li>
             </ul>
         </div>
