@@ -16,7 +16,8 @@ export default {
                     .then(movieResults => {
                         return store.searchSeries(this.searchQuery)
                             .then(seriesResults => {
-                                this.store.results = [...movieResults, ...seriesResults];
+                                this.store.resultsMovies = [...movieResults];
+                                this.store.resultsSeries = [...seriesResults];
                             });
                     })
                     .catch(error => {

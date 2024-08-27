@@ -36,10 +36,19 @@ export default {
 </script>
 
 <template>
-    <div v-if="store.results.length > 0">
-        <h2>Risultati della ricerca:</h2>
+    <div v-if="store.resultsMovies.length > 0">
+        <h2>Risultati Film:</h2>
         <ul>
-            <li v-for="item in store.results" :key="item.id">
+            <li v-for="item in store.resultsMovies" :key="item.id">
+                {{ item.title || item.name }} ({{ item.vote_average }})
+                ({{ item.original_title }}) <span :class="getFlagClass(item.original_language)"></span>
+            </li>
+        </ul>
+    </div>
+    <div v-if="store.resultsSeries.length > 0">
+        <h2>Risultati delle Serie TV:</h2>
+        <ul>
+            <li v-for="item in store.resultsSeries" :key="item.id">
                 {{ item.title || item.name }} ({{ item.vote_average }})
                 ({{ item.original_title }}) <span :class="getFlagClass(item.original_language)"></span>
             </li>
