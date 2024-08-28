@@ -59,15 +59,16 @@ export default {
                             <div class="card-body movie-info">
                                 <div class="d-flex">
                                     <h5 class="card-title pe-2">{{ item.title }}</h5>
-                                    <span :class="getFlagClass(item.original_language)"></span>
                                 </div>
                                 <p v-if="item.original_title !== item.title" class="original-title">
                                     ({{ item.original_title }})</p>
                                 <p class="card-text">{{ item.overview }}</p>
-                                <div class="rating">
+                                <div class="rating ">
                                     <span v-for="n in 5" :key="n">
                                         <i :class="getStarClass(item.vote_average, n)"></i>
                                     </span>
+                                    <p class="mt-4">Lingua Originale: <span
+                                            :class="getFlagClass(item.original_language)"></span></p>
                                 </div>
                             </div>
                         </div>
@@ -89,10 +90,12 @@ export default {
                                 ({{ item.original_name }})
                             </p>
                             <p class="card-text">{{ item.overview }}</p>
-                            <div class="rating">
+                            <div class="rating ">
                                 <span v-for="n in 5" :key="n">
                                     <i :class="getStarClass(item.vote_average, n)"></i>
                                 </span>
+                                <p class="mt-4">Lingua Originale: <span
+                                        :class="getFlagClass(item.original_language)"></span></p>
                             </div>
                         </div>
                     </div>
