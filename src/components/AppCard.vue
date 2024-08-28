@@ -51,7 +51,7 @@ export default {
         <div class="row">
             <div class="col-12">
                 <div v-if="store.resultsMovies.length > 0">
-                    <h2 class="text-light">Risultati Film:</h2>
+                    <h2 class="text-light mt-5">Risultati Film:</h2>
                     <div class="row row-cols-3 justify-content-center">
                         <div v-for="item in store.resultsMovies" :key="item.id" class="card p-0 m-3 movie-card">
                             <img :src="item.poster_path ? `https://image.tmdb.org/t/p/w342/${item.poster_path}` : `https://placehold.co/342x513?text=${item.title}`"
@@ -76,7 +76,7 @@ export default {
                 </div>
             </div>
             <div v-if="store.resultsSeries.length > 0">
-                <h2 class="text-light">Risultati Serie TV:</h2>
+                <h2 class="text-light mt-5">Risultati Serie TV:</h2>
                 <div class="row row-cols-3 justify-content-center">
                     <div v-for="item in store.resultsSeries" :key="item.id" class="card p-0 m-3 movie-card">
                         <img :src="item.poster_path ? `https://image.tmdb.org/t/p/w342/${item.poster_path}` : `https://placehold.co/342x513?text=${item.name}`"

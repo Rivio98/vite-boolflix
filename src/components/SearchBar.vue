@@ -29,17 +29,18 @@ export default {
 };
 </script>
 
-<template lang="">
+<template lang="html">
     <div class="search-container justify-content-between">
         <div class="brand-name">
             <h1 class="title">BOOLFLIX</h1>
         </div>
         <div class="search-wrapper">
-            <input v-model="searchQuery" placeholder="Cerca un film o una serie..." />
+            <input v-model="searchQuery" placeholder="Cerca un film o una serie..." @keydown.enter="searchContent" />
             <button @click="searchContent">Cerca</button>
         </div>
     </div>
 </template>
+
 
 <style scoped>
 .search-container {
