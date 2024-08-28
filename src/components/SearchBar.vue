@@ -71,7 +71,6 @@ export default {
     border: none;
     border-radius: 5px;
     background-color: #ff5a5f;
-    /* Button color */
     color: white;
     font-size: 16px;
     cursor: pointer;
